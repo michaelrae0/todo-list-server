@@ -1,20 +1,20 @@
 import { Router } from 'express'
-import controllers from './item.controllers'
+import controllers from './list.controllers'
 
-const itemRouter = Router()
+const listRouter = Router()
 
-/* /item */
-itemRouter
+// /list
+listRouter
   .route('/')
   .get(controllers.getMany)
   .post(controllers.createOne)
   .delete(controllers.removeAll)
 
-/* /item/:id */
-itemRouter
+// /list/:id
+listRouter
   .route('/:id')
   .get(controllers.getOne)
-  .put(controllers.updateOne)
+  .put(controllers.addItemToList)
   .delete(controllers.removeOne)
 
-export default itemRouter
+export default listRouter
