@@ -1,21 +1,18 @@
 import mongoose from 'mongoose'
 
-const itemSchema = new mongoose.Schema({
-    task: {
+export const itemSchema = new mongoose.Schema({
+    id: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    content: {
       type: String,
       required: true,
       trim: true
     },
-    id: {
-      type: String,
-      required: true,
-      unique: true
-    },
-    yolo: {
-      type: String
-    }
-  }, 
-  { timestamps: true }
+    status: String
+  }
 )
 
 export const Item =  mongoose.model('item', itemSchema)
